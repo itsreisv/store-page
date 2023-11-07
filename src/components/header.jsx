@@ -12,7 +12,7 @@ export function Header({cart}) {
         <div className="header-links">
           <Link to="/"><button type="button" className="nav-button">Home</button></Link>
           <Link to="/shop"><button type="button" className="nav-button">Shop</button></Link>
-          <img src="../src/assets/cart-outline.svg" className="cart-icon"/>
+          <Link to='Cart'><img src="../src/assets/cart-outline.svg" className="cart-icon"/></Link>
           <div className="cart-contents">{cart.length}</div>
         </div>
       </div>

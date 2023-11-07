@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useActionData } from "react-router-dom";
 
 
-export function ItemPage({data}) {
+export function ItemPage({data, update}) {
 const [amount, setAmount] = useState(1);
 
   function eventHandlerAdd() {
@@ -13,7 +13,6 @@ const [amount, setAmount] = useState(1);
       setAmount(amount + 1)
     }
   }
-
   function eventHandlerSubtract() {
     if (amount == 1) {
       setAmount(1)
@@ -28,13 +27,13 @@ const [amount, setAmount] = useState(1);
       <div className="page-image"><img src={data.image} className="item-image" /></div>
       <div className="page-input">
         <h2 className="short-desc">{data.title}</h2>
-        <p>${data.price}</p>
+        <p className="price">${data.price}</p>
         <div className="input-container">
         <button type="button" className="value-button" onClick={eventHandlerSubtract}>-</button>
         <input type="text" id="item-amount" value={amount} />
         <button type="button" className="value-button" onClick={eventHandlerAdd}>+</button>
         </div>
-        <button type="button" className="cart-button">Add to Cart</button>
+        <button type="button" className="cart-button" onClick={update}>Add to Cart</button>
       </div>
       <Link to='/shop'><button type="button" className="exit">X</button></Link>
       </div>
